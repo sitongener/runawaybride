@@ -95,10 +95,11 @@ header a:hover{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 20px;
   /* background-color: aqua; */
   width: 450px;
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 40%; /* Center vertically */
   left: 30px;
   transform: translateY(-50%); 
 z-index: 5;
