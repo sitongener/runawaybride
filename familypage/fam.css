@@ -1,0 +1,26 @@
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrollbars */
+      background-color: #3e05b9;
+      animation: bgColorTransition 0.5s infinite alternate; 
+    }
+    /* Style for all bouncing images */
+    .bouncing {
+      position: absolute;
+      width: 400px; /* Adjust as needed */
+      height: auto;
+      /* border: 2px solid #fff; */
+      border-radius: 8px;
+      /* Optional: Add a slight drop shadow for effect */
+      /* box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); */
+    }
+    @keyframes bgColorTransition {
+        0% {
+          background-color: #3e05b9;/* Starting color: dark gray */
+        }
+        100% {
+          background-color: #ff0000; /* Ending color: red */
+        }
+      }

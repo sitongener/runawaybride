@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self Viewer with Type Box</title>
+  
+   <link rel="stylesheet" href="eyestyle.css" />
+</head>
+<body>
+  <div id="container">
+    <!-- Self-view video element -->
+    <video id="selfViewer" autoplay muted playsinline></video>
+    <!-- Type box (input field) below the video -->
+    
+    <input type="text" id="typeBox" placeholder="Are you my bride?" />
+  </div>
+ 
+
+  <script>
+    // Check if getUserMedia is supported
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+          const videoElement = document.getElementById('selfViewer');
+          videoElement.srcObject = stream;
+        })
+        .catch(function(error) {
+          console.error("Error accessing webcam:", error);
+          alert("Could not access your webcam. Please check permissions.");
+        });
+    } else {
+      alert("Your browser does not support accessing the webcam.");
+    }
+
+
+    const typeBox = document.getElementById("typeBox");
+
+// Listen for keydown events on the input
+typeBox.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") { // When the user presses Enter
+    let answer = typeBox.value.trim().toLowerCase();
+    if (answer === "yes") {
+      // Redirect to the exit page 
+      window.location.href = "../main.html"; 
+    } else if (answer === "no") {
+      // Redirect to the main page
+      window.location.href = "./exitPage.html"; 
+    } else {
+      // Optionally, notify the user to type a valid answer
+      alert("Please type 'yes' or 'no'.");
+    }
+  }
+});
+  </script>
+</body>
+</html>

@@ -1,6 +1,256 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  /* border: .5px solid red; */
 }
+.lugrasimo-regular {
+  font-family: "Lugrasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.astloch-bold {
+  font-family: "Astloch", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.jacquard-12-regular {
+  font-family: "Jacquard 12", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.syne-mono-regular {
+  font-family: "Syne Mono", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+a {
+  color: red; /* Make the link blue */
+  text-decoration: none; /* Underline the link */
+}
+
+
+body{
+  height: 100vh;
+  font-family: "Syne Mono", serif;
+background-color: rgb(1, 105, 76);
+transition: background-color 0.1s ease;
+/* overflow: hidden;  */
+
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3; 
+}
+header h1{
+  font-family:"Lugrasimo", serif; ;
+  font-size: 120px;
+  color: red;
+}
+header h1:hover{
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+header a{
+  text-decoration: none;
+}
+header a:hover{
+  transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+.runawaytxt{
+  font-size: 150px;
+  text-shadow: 
+  -1.5px -1.5px 0 black,  
+  1.5px -1.5px 0 black,
+ -1.5px  1.5px 0 black,
+  1.5px  1.5px 0 black, 
+   5px 5px 8px rgba(0, 0, 0, 0.8);
+}
+.bridetxt{
+  margin-top: -150px;
+  font-family: "Astloch", serif;
+  font-size: 200px;
+ font-weight:normal;
+ 
+  color: rgb(255, 255, 255);
+  text-shadow: 
+    -1px -1px 0 red,  
+     1px -1px 0 red,
+    -1px  1px 0 red,
+     1px  1px 0 red,
+     5px 5px 8px rgba(0, 0, 0, 0.8);
+ 
+}
+
+.leftimg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+  width: 450px;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 30px;
+  transform: translateY(-50%); 
+z-index: 5;
+}
+.leftimg img{
+  width: 100%;
+  object-fit: contain;
+}
+#marry{
+  width:160px;
+}
+
+.button-container{
+  font-family: "Syne Mono", serif;
+  color: red;
+  width: 200px;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  right: 70px;
+  transform: translateY(-50%); 
+
+  z-index: 5;
+  pointer-events: auto;
+  display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            
+}
+.button-container p{
+  font-size: 16px;
+  font-style: italic;
+}
+.button-container img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow:5px 5px 8px rgba(0, 0, 0, 0.5) ;
+  transition: transform 0.1s;
+}
+.button-container img:hover{
+  animation: jiggle 0.1s infinite;
+}
+@keyframes jiggle {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.stackedimg{
+  display: grid;
+ place-items: center;
+ margin-top: -320px;
+}
+.stackedimg a{
+  
+  grid-column: 1;
+  grid-row: 1;
+ 
+}
+
+.curtain{
+  z-index: 0;
+}
+.curtain img{
+  width:100%;
+  height:700px;
+}
+.bride{
+  z-index: 1;
+}
+.bride img{
+ width: 65%;
+ transform: translate(28%, 7%);
+}
+.frame{
+  z-index: 2;
+}
+.frame img{
+ width: 1000px;
+  height:900px;
+}
+
+
+.dialogue-box {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 20%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow:5px 5px 8px rgba(0, 0, 0, 0.8) ;
+  font-family: "Jacquard 12", serif;
+  font-size: 30px;
+  z-index: 4;
+}
+
+.character-name {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 5px;
+}
+
+button {
+  font-family: "Jacquard 12", serif;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  position: absolute;
+  bottom: 20px;
+    right: 20px;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.runawayleftimg{
+  display: flex;
+flex-direction: column;
+width: 30%;
+}
+.runawayleftimg img{
+  width:100%;
+  object-fit: cover;
+  transform: translateX(50px);
+}
+
+.textwrap{
+  width: 50%;
+padding: 20px;
+}
+
+.runawayrightimg{
+  width: 10%;
+  transform: translateX(-20px);
+  }
+  .runawayrightimg img{
+    width: 100%;
+    object-fit: cover;
+  }
+
 
 

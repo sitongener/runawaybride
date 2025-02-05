@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Bouncing Images</title>
+   <link rel="stylesheet" href="fam.css" />
+</head>
+<body>
+
+  <!-- Multiple images with class "bouncing" -->
+  <a href="../main.html"><img src="../img/bride.png" class="bouncing" alt="mainimg"></a>
+  <img src="../img/fam1.png" class="bouncing" alt="Image 1">
+  <img src="../img/fam2.png" class="bouncing" alt="Image 2">
+  <img src="../img/fam3.png" class="bouncing" alt="Image 3">
+  <img src="../img/fam4.png" class="bouncing" alt="Image 4">
+  <img src="../img/fam5.png" class="bouncing" alt="Image 5">
+  <img src="../img/fam6.png" class="bouncing" alt="Image 6">
+  
+  <script>
+    // Select all images with the class "bouncing"
+    const images = document.querySelectorAll('.bouncing');
+    const imageData = [];
+
+    // For each image, assign initial random positions and velocities
+    images.forEach(image => {
+      // Ensure the image is absolutely positioned
+      image.style.position = "absolute";
+
+      // Determine the image dimensions (if not loaded yet, default to 150)
+      const imgWidth = image.offsetWidth || 150;
+      const imgHeight = image.offsetHeight || 150;
+      
+      // Set random starting positions within the window bounds
+      const x = Math.random() * (window.innerWidth - imgWidth);
+      const y = Math.random() * (window.innerHeight - imgHeight);
+      
+      // Set random velocities (pixels per frame)
+      // Random values between 1 and 3 (or -1 and -3 for negative velocities)
+      const dx = (Math.random() * 2 + 1) * (Math.random() < 0.5 ? -1 : 1);
+      const dy = (Math.random() * 2 + 1) * (Math.random() < 0.5 ? -1 : 1);
+      
+      // Save the image data in an object
+      imageData.push({ element: image, x, y, dx, dy });
+    });
+
+    // Animation function
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      imageData.forEach(data => {
+        // Update positions
+        data.x += data.dx;
+        data.y += data.dy;
+        
+        // Get image dimensions (in case they change)
+        const rect = data.element.getBoundingClientRect();
+        const imgWidth = rect.width;
+        const imgHeight = rect.height;
+        
+        // Collision detection for left/right edges
+        if (data.x <= 0 || data.x + imgWidth >= window.innerWidth) {
+          data.dx = -data.dx;
+          // Clamp the position within bounds:
+          data.x = Math.max(0, Math.min(data.x, window.innerWidth - imgWidth));
+        }
+        // Collision detection for top/bottom edges
+        if (data.y <= 0 || data.y + imgHeight >= window.innerHeight) {
+          data.dy = -data.dy;
+          // Clamp the position within bounds:
+          data.y = Math.max(0, Math.min(data.y, window.innerHeight - imgHeight));
+        }
+        
+        // Update the element's position
+        data.element.style.left = data.x + "px";
+        data.element.style.top = data.y + "px";
+      });
+    }
+
+    // Start the animation
+    animate();
+  </script>
+
+</body>
+</html>
