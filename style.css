@@ -107,9 +107,41 @@ z-index: 5;
   width: 100%;
   object-fit: contain;
 }
+#house:hover{
+  animation: houseflash 0.1s infinite alternate; 
+}
+@keyframes houseflash {
+  0% {
+   filter: brightness(0.2) grayscale() blur(2px);
+  }
+  100% {
+    filter:brightness(2) blur(5px)hue-rotate(180deg);
+  }
+}
+
 #marry{
   width:160px;
+  position: absolute;
+  transition: opacity 0.3s ease;
+  left:145px;
+  border-radius: 10px;
+  z-index: 2;
+  opacity: 1;
 }
+#marry:hover{
+  opacity: 0;
+}
+#marry2{
+  width:160px;
+  position: absolute;
+  border-radius: 10px;
+  left:145px;
+}
+.stackemarry{
+  position: relative;
+}
+
+
 
 .button-container{
   font-family: "Syne Mono", serif;
@@ -243,14 +275,19 @@ width: 30%;
 padding: 20px;
 }
 
-.runawayrightimg{
+.runawayrightimg {
   width: 10%;
-  transform: translateX(-20px);
-  }
-  .runawayrightimg img{
-    width: 100%;
-    object-fit: cover;
-  }
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  transform: translateX(-50%);
+  transition: transform 0.1s linear;
+}
+
+.runawayrightimg img {
+  width: 100%;
+  object-fit: cover;
+}
 
 
 

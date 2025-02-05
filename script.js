@@ -109,4 +109,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
- 
+ //right scroll image control
+ window.addEventListener("scroll", function() {
+    // Get the vertical scroll value
+    const scrollY = window.scrollY;
+    
+    // Calculate horizontal oscillation using sine function
+    const amplitude = 100; // pixels to move left and right
+    const frequency = 350; // adjust speed of oscillation
+    const oscillation = Math.sin(scrollY / frequency) * amplitude;
+    const flip = Math.sin(scrollY / (frequency / 2)) > 0 ? 1 : -1;
+    
+    // Select the image container
+    const image = document.querySelector(".runawayrightimg");
+  
+    // Only apply horizontal movement (left & right)
+    image.style.transform = `translateX(calc(-50% + ${oscillation}px))`;
+    image.style.transform = `scaleX(${flip}) translateX(${oscillation}px)`;
+  });
+  
